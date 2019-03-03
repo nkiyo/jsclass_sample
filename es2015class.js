@@ -26,11 +26,28 @@ class Member {
     }
 }
 
-const m1 = new Member('kiyo', 'naka');
-const m2 = new Member('tomo', 'naka');
-console.log(m1.getName());
-console.log(m2.getName());
-console.log(m1.firstName);
-m1.firstName = 'kiyoshi';
-console.log(m1.firstName);
+class BusinessMember extends Member {
+    constructor(firstName, lastName, clazz) {
+        super(firstName, lastName);
+        this.clazz = clazz;
+    }
+
+    getName() {
+        return `${super.getName()} class:${this.clazz}`;
+    }
+
+    work() {
+        return `${this.getName()} is working.`;
+    }
+}
+
+const m1 = new BusinessMember('kiyo', 'n', 't');
+const m2 = new BusinessMember('tomo', 'n', 'b');
+//console.log(m1.getName());
+//console.log(m2.getName());
+//console.log(m1.firstName);
+//m1.firstName = 'kiyoshi';
+//console.log(m1.firstName);
+console.log(`${m1.work()}`);
+console.log(`${m2.work()}`);
 
